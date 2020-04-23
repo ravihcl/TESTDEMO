@@ -1,0 +1,31 @@
+Q2.
+
+public class Solution {
+	public static void main(String []ar) {
+		String str = "aaabccddd";
+		String ans = smallestString(str);
+		System.out.println((ans.equals("") || ans == null)? "Empty String" : ans);
+	}
+	public static String smallestString(String str) {
+		int len = str.length();
+		boolean repeatingFound = false;
+		int repeatingIndex = -1;
+		for(int i = 0; i<len-1; ++i) {
+			if(str.charAt(i) == str.charAt(i+1))
+			{
+				repeatingFound = true;
+				repeatingIndex = i;
+			
+			     break;
+			
+		}
+	}
+if(repeatingFound) {
+	return smallestString(str.substring(0, repeatingIndex) + str.substring( repeatingIndex+2,len));
+}
+else 
+	return str;
+
+}
+}
+//output-- abd
